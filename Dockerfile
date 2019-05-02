@@ -1,7 +1,7 @@
 # fenrir/testssl
 # testssl.sh -> https://github.com/drwetter/testssl.sh
 #
-# VERSION 0.0.1
+# VERSION 0.0.2
 #
 FROM debian:stretch-slim
 MAINTAINER Fenrir <dont@want.spam>
