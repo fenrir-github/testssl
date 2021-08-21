@@ -1,9 +1,9 @@
 # fenrir/testssl
 # testssl.sh -> https://github.com/drwetter/testssl.sh
 #
-# VERSION 0.0.3
+# VERSION 1.0.0
 #
-FROM debian:stretch-slim
+FROM debian:buster-slim
 MAINTAINER Fenrir <dont@want.spam>
 
 ENV	DEBIAN_FRONTEND noninteractive
@@ -15,12 +15,12 @@ RUN	echo 'APT::Install-Suggests "false";' > /etc/apt/apt.conf &&\
 	echo 'Aptitude::Suggests-Important "false";' >> /etc/apt/apt.conf &&\
 	apt-get update &&\
 	apt-get -y dist-upgrade &&\
-	apt-get -y install ca-certificates git bsdmainutils ldnsutils procps
+	apt-get -y install ca-certificates git bsdmainutils ldnsutils procps &&\
+	apt-get autoclean && apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*.deb /tmp/* /var/tmp/*
 	
 # Install testssl.sh
 RUN     git clone --depth=1 https://github.com/drwetter/testssl.sh.git /testssl.sh/ &&\
         ln -s /testssl.sh/testssl.sh /usr/local/bin/
-RUN     apt-get autoclean && apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*.deb /tmp/* /var/tmp/*
 
 WORKDIR /testssl.sh/
 ENTRYPOINT ["testssl.sh","--openssl","/testssl.sh/bin/openssl.Linux.x86_64"]
