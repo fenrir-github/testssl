@@ -14,7 +14,7 @@ RUN	echo 'APT::Install-Suggests "false";' > /etc/apt/apt.conf &&\
 	echo 'Aptitude::Recommends-Important "false";' >> /etc/apt/apt.conf &&\
 	echo 'Aptitude::Suggests-Important "false";' >> /etc/apt/apt.conf &&\
 # Install packages
-	apt-get update && apt-get install -y -q ssh &&\
+	apt-get update && apt-get install -y -q ca-certificates git bsdmainutils ldnsutils procps &&\
 # Cleanning
 	apt-get autoclean &&\
 	apt-get clean &&\
