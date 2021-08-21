@@ -1,9 +1,9 @@
 # fenrir/testssl
 # testssl.sh -> https://github.com/drwetter/testssl.sh
 #
-# VERSION 1.0.0
+# VERSION 11.0.0
 #
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 MAINTAINER Fenrir <dont@want.spam>
 
 ENV	DEBIAN_FRONTEND noninteractive
