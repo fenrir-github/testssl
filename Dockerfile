@@ -1,7 +1,7 @@
 # fenrir/testssl
 # testssl.sh -> https://github.com/drwetter/testssl.sh
 #
-# VERSION 11.0.1
+# VERSION 11.0.2
 #
 FROM debian:bullseye-slim
 MAINTAINER Fenrir  <dont@want.spam>
@@ -18,11 +18,10 @@ RUN	echo 'APT::Install-Suggests "false";' > /etc/apt/apt.conf &&\
 # Cleanning
 	apt-get autoclean &&\
 	apt-get clean &&\
-	rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*.deb /tmp/* /var/tmp/*
-	
+	rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*.deb /tmp/* /var/tmp/* &&\
 # Install testssl.sh
-RUN     git clone --depth=1 https://github.com/drwetter/testssl.sh.git /testssl.sh/ &&\
-        ln -s /testssl.sh/testssl.sh /usr/local/bin/
+	git clone --depth=1 https://github.com/drwetter/testssl.sh.git /testssl.sh/ &&\
+	ln -s /testssl.sh/testssl.sh /usr/local/bin/
 
 WORKDIR /testssl.sh/
 ENTRYPOINT ["testssl.sh","--openssl","/testssl.sh/bin/openssl.Linux.x86_64"]
