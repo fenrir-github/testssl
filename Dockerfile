@@ -1,7 +1,7 @@
 # fenrir/testssl
 # testssl.sh -> https://github.com/drwetter/testssl.sh
 #
-# VERSION 11.0.2
+# VERSION 11.6.0
 #
 FROM debian:bullseye-slim
 MAINTAINER Fenrir  <dont@want.spam>
