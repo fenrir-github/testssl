@@ -1,10 +1,10 @@
 # fenrir/testssl
 # testssl.sh -> https://github.com/drwetter/testssl.sh
 #
-# VERSION 12.0.0
+# VERSION 12.0.1
 #
 FROM debian:12-slim
-MAINTAINER Fenrir <dont@want.spam>
+LABEL org.opencontainers.image.authors="dont@want.spam.invalid"
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -28,4 +28,3 @@ RUN echo 'APT::Install-Suggests "false";' > /etc/apt/apt.conf &&\
 WORKDIR /testssl.sh/
 ENTRYPOINT ["testssl.sh","--openssl","/testssl.sh/bin/openssl.Linux.x86_64"]
 CMD ["--help"]
-
